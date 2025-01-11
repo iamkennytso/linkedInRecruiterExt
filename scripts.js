@@ -1,6 +1,8 @@
 window.onload = function() {
   const heroBanner = document.querySelector('.profile-background-image')
-  heroBanner.style.display = 'none';
+  if (heroBanner) {
+    heroBanner.style.display = 'none';
+  }
 
   setTimeout(() => {
     const premiumAd = document.querySelector('.pv-top-card__premium-feature-banner');
