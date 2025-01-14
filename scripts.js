@@ -39,4 +39,26 @@ window.onload = function() {
     })
   })
 
+  document.addEventListener('keyup', (e) => {
+    const { ctrlKey, shiftKey, key } = e
+    if (ctrlKey && shiftKey && key === 'C') {
+      const connectButton = document.querySelector('[aria-label^="Invite"]')
+      const aria = connectButton.getAttribute('aria-label')
+      const [_, firstName] = aria.split(' ')
+      connectButton.click()
+      const randTime = Math.random() * (500 - 200) + 200
+      setTimeout(() => {
+        const addANoteButton = document.querySelector('[aria-label="Add a note"]')
+        addANoteButton.click()
+
+        setTimeout(() => {
+          (async () => {
+            clipboardData = await navigator.clipboard.readText()
+            const textArea = document.querySelector('#custom-message')
+            textArea.value = 'Hi ' + firstName + ',\n\n' + clipboardData
+          })()
+        }, 500)
+      }, randTime)
+    }
+  });
 }
