@@ -49,7 +49,9 @@ window.onload = function() {
       const randTime = Math.random() * (500 - 200) + 200
       setTimeout(() => {
         const addANoteButton = document.querySelector('[aria-label="Add a note"]')
-        addANoteButton.click()
+        if (addANoteButton) {
+          addANoteButton.click()
+        }
 
         setTimeout(() => {
           (async () => {

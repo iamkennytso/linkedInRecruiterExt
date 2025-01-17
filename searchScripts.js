@@ -1,7 +1,7 @@
 window.onload = function() {
   document.addEventListener('keyup', (e) => {
     const { ctrlKey, shiftKey, key } = e
-    if (ctrlKey && shiftKey && key === 'C') {
+    if (ctrlKey && shiftKey && key === 'X') {
       window.scrollTo(0, document.body.scrollHeight);
       const list = document.querySelector('ul[role="list"]')
       const children = list.children
